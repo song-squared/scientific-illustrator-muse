@@ -1,5 +1,7 @@
 # QUICKSTART
 
+[English](QUICKSTART-en.md) | [中文](QUICKSTART.md)
+
 三步跑通第一张图。面向第一次用本项目的 Muse（或任何 AI agent）。
 
 ## 前提
