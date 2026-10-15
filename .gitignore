@@ -1,0 +1,13 @@
+# 测试产物 (PNG/drawio太大, 只保留源码和文档)
+tests/
+*.png
+*.drawio
+# 系统文件
+.DS_Store
+*.log
+# 临时文件
+/tmp/
+# draw.io安装包太大(122MB), 不入库, setup.sh会自动下载
+drawio-*.deb
+# 大PNG产物
+final-*.png
