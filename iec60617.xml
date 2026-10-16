@@ -1,0 +1,181 @@
+<shapes name="iec60617">
+  <!-- 常开触点 -->
+  <shape name="no_contact" aspect="variable" w="30" h="52" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="15" y="0"/><line x="15" y="16"/><line x="28" y="36"/><move x="15" y="36"/><line x="15" y="52"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 常闭触点 -->
+  <shape name="nc_contact" aspect="variable" w="30" h="52" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="15" y="0"/><line x="15" y="16"/><line x="28" y="36"/><move x="15" y="36"/><line x="15" y="52"/><move x="8" y="32"/><line x="24" y="20"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 线圈 -->
+  <shape name="coil" aspect="variable" w="64" h="28" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <rect x="0" y="0" w="64" h="28"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 热继电器 -->
+  <shape name="thermal_relay" aspect="variable" w="130" h="50" strokewidth="inherit">
+    <connections>
+      <constraint x="0.25" y="0"/><constraint x="0.5" y="0"/><constraint x="0.75" y="0"/>
+      <constraint x="0.25" y="1"/><constraint x="0.5" y="1"/><constraint x="0.75" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <rect x="0" y="0" w="130" h="50"/>
+      <stroke/>
+      <strokewidth width="1.5"/>
+      <rect x="20" y="16" w="24" h="18"/>
+      <stroke/>
+      <rect x="86" y="16" w="24" h="18"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 三相电机 -->
+  <shape name="motor_3ph" aspect="fixed" w="64" h="64" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="64" h="64"/>
+      <stroke/>
+      <text str="M" x="32" y="34" align="center" valign="middle" fontsize="24"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 指示灯 -->
+  <shape name="indicator_lamp" aspect="fixed" w="56" h="56" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="56" h="56"/>
+      <stroke/>
+      <path><move x="17" y="17"/><line x="39" y="39"/><move x="17" y="39"/><line x="39" y="17"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 蜂鸣器 -->
+  <shape name="buzzer" aspect="variable" w="76" h="36" strokewidth="inherit">
+    <connections>
+      <constraint x="0.24" y="0"/>
+      <constraint x="0.24" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="36" h="36"/>
+      <stroke/>
+      <path><move x="36" y="7"/><line x="58" y="0"/><move x="36" y="29"/><line x="58" y="36"/><move x="58" y="0"/><line x="58" y="36"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 选择开关 -->
+  <shape name="selector_switch" aspect="fixed" w="32" h="32" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="32" h="32"/>
+      <stroke/>
+      <path><move x="16" y="16"/><line x="27" y="5"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 浮球开关 -->
+  <shape name="float_switch" aspect="variable" w="48" h="52" strokewidth="inherit">
+    <connections>
+      <constraint x="0.27" y="0"/>
+      <constraint x="0.27" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="26" w="26" h="26"/>
+      <stroke/>
+      <path><move x="13" y="26"/><line x="35" y="0"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 按钮 -->
+  <shape name="pushbutton" aspect="variable" w="30" h="52" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="15" y="0"/><line x="15" y="14"/><move x="15" y="38"/><line x="15" y="52"/></path>
+      <stroke/>
+      <ellipse x="4" y="15" w="22" h="22"/>
+      <stroke/>
+      <path><move x="0" y="10"/><line x="30" y="10"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 刀开关 -->
+  <shape name="knife_switch" aspect="variable" w="62" h="44" strokewidth="inherit">
+    <connections>
+      <constraint x="0.06" y="0.68"/>
+      <constraint x="0.94" y="0.68"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="4" y="30"/><line x="46" y="0"/><move x="54" y="30"/><line x="54" y="16"/></path>
+      <stroke/>
+      <ellipse x="0" y="26" w="8" h="8"/>
+      <fillstroke/>
+      <ellipse x="50" y="22" w="8" h="8"/>
+      <fillstroke/>
+    </foreground>
+  </shape>
+  <!-- 熔断器 -->
+  <shape name="fuse" aspect="variable" w="16" h="52" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="8" y="0"/><line x="8" y="14"/><move x="8" y="38"/><line x="8" y="52"/></path>
+      <stroke/>
+      <rect x="0" y="14" w="16" h="24"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 端子圆圈 -->
+  <shape name="terminal" aspect="fixed" w="16" h="16" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0.5"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="16" h="16"/>
+      <stroke/>
+    </foreground>
+  </shape>
+</shapes>
