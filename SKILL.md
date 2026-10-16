@@ -229,6 +229,25 @@ printf '%s\n' '{"id":1,"tool":"drawio_live_launch","arguments":{}}' | ./mcp-call
 - 顺手把旧版本留着，方便回滚对比。
 - 发图时只发最新时间戳那张，不要翻旧消息看图。
 
+### 5.9 电气原理图（2026-10-16 浮球电机实战）
+- 可画。接触器触点/线圈、热继电器、电机、指示灯、按钮、选择开关、浮球开关
+  全是直线/圆/矩形的组合，Python 直写 `.drawio` XML 一把梭，不用 AI 生成图标，
+  也不用调 draw.io 自带电气符号库（库是给人用鼠标点的，AI 背内部 style 名反而慢）。
+- 难点不在画，在**认电路**：元件多、接线密，认错一个符号整图就错。
+  动笔前先分区放大读原图，盘点所有元件与接线拓扑再写代码。
+- 版式建议：原图常把控制支路挤在主触点极间穿过，重绘时可把主回路/指示灯/
+  控制回路分成左中右三区，拓扑不变、可读性更好（差异要在完工报告里说明）。
+- 黑底白线 CAD 风：先画满画布黑矩形打底（`fillColor=#000000`），再画白线；
+  红实心圆点表示导线连接（无点交叉=不连接）。
+
+### 5.10 Python 直写 XML 的坑（2026-10-16）
+- `as` 是 Python 关键字，`ET.SubElement(..., as_="geometry")` 会原样输出成
+  错误属性 `as_=`，draw.io 解析异常。必须用 attrib 字典：
+  `ET.SubElement(parent, "mxGeometry", {"as": "geometry", ...})`。
+  同理 `mxPoint` 标签别手滑写成 `mxGeometry`。
+- 写完先用极简渲染器自查几何（`drawio_render.py`：PIL 直读 .drawio 画 PNG），
+  确认无误再走 draw.io 官方导出；draw.io 挂掉时它也可做导出兜底。
+
 ### 5.5 铁律
 - 只调 draw.io 自身的图 API；不模拟鼠标键盘；不预生成 XML 再打开。
 - `save_snapshot` 存 `.drawio` 只能发生在图已画完之后。
@@ -258,3 +277,4 @@ printf '%s\n' '{"id":1,"tool":"drawio_live_launch","arguments":{}}' | ./mcp-call
 | 审计报 `connector-path-through-object` | 先看是不是装饰性线条（叶片穿过轮毂、网格线穿过面板、散热片穿过箱体）——是则为误报，接受；真问题只看 `outside-page` 和 `arrowhead-intrusion` |
 | 内存不足（可用 <300MB） | 先 `free -m` 确认；Electron 启动可能失败，等宿主机内存回落再试 |
 | apt 卡死 | 别等了，走 curl 手动下 deb（参考第三步的包地址记录） |
+| `drawio --headless --export` 段错误 | 缺 Electron 运行时依赖；改用 `xvfb-run -a /opt/drawio/drawio --no-sandbox --export ...`（2026-10-16 实测可用） |
