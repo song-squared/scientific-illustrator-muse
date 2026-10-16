@@ -178,4 +178,142 @@
       <stroke/>
     </foreground>
   </shape>
+  <!-- 断路器 -->
+  <shape name="circuit_breaker" aspect="variable" w="18" h="62" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="9" y="0"/><line x="9" y="16"/><move x="9" y="46"/><line x="9" y="62"/><move x="0" y="22"/><line x="18" y="40"/><move x="0" y="40"/><line x="18" y="22"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 隔离开关 -->
+  <shape name="disconnector" aspect="variable" w="32" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0.28" y="0"/>
+      <constraint x="0.28" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="9" y="0"/><line x="9" y="14"/><move x="9" y="18"/><line x="25" y="40"/><move x="9" y="44"/><line x="9" y="60"/></path>
+      <stroke/>
+      <ellipse x="5" y="14" w="8" h="8"/>
+      <fillstroke/>
+    </foreground>
+  </shape>
+  <!-- 急停按钮 -->
+  <shape name="emergency_stop" aspect="variable" w="30" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="15" y="0"/><line x="15" y="22"/><move x="15" y="36"/><line x="15" y="60"/></path>
+      <stroke/>
+      <ellipse x="0" y="22" w="30" h="14"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 限位开关 -->
+  <shape name="limit_switch" aspect="variable" w="36" h="56" strokewidth="inherit">
+    <connections>
+      <constraint x="0.25" y="0"/>
+      <constraint x="0.25" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="9" y="0"/><line x="9" y="16"/><line x="24" y="36"/><move x="9" y="40"/><line x="9" y="56"/></path>
+      <stroke/>
+      <ellipse x="20" y="30" w="12" h="12"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 电流互感器 -->
+  <shape name="current_transformer" aspect="fixed" w="48" h="32" strokewidth="inherit">
+    <connections>
+      <constraint x="0.17" y="0.5"/>
+      <constraint x="0.83" y="0.5"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="32" h="32"/>
+      <stroke/>
+      <ellipse x="16" y="0" w="32" h="32"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 电流表 -->
+  <shape name="ammeter" aspect="fixed" w="56" h="56" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="56" h="56"/>
+      <stroke/>
+      <text str="A" x="28" y="30" align="center" valign="middle" fontsize="24"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 电压表 -->
+  <shape name="voltmeter" aspect="fixed" w="56" h="56" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="56" h="56"/>
+      <stroke/>
+      <text str="V" x="28" y="30" align="center" valign="middle" fontsize="24"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 避雷器 -->
+  <shape name="surge_arrester" aspect="variable" w="20" h="56" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="10" y="0"/><line x="10" y="12"/><move x="10" y="40"/><line x="10" y="56"/></path>
+      <stroke/>
+      <rect x="0" y="12" w="20" h="28"/>
+      <stroke/>
+      <path><move x="0" y="40"/><line x="20" y="12"/><move x="12" y="16"/><line x="20" y="12"/><move x="16" y="20"/><line x="20" y="12"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 通电延时常开触点 -->
+  <shape name="time_delay_no" aspect="variable" w="42" h="52" strokewidth="inherit">
+    <connections>
+      <constraint x="0.64" y="0"/>
+      <constraint x="0.64" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="27" y="0"/><line x="27" y="16"/><line x="40" y="36"/><move x="27" y="36"/><line x="27" y="52"/><move x="3" y="8"/><line x="3" y="24"/><move x="3" y="8"/><line x="27" y="8"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 电磁铁 -->
+  <shape name="solenoid" aspect="fixed" w="40" h="28" strokewidth="inherit">
+    <connections>
+      <constraint x="0" y="0.5"/>
+      <constraint x="1" y="0.5"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <rect x="0" y="0" w="40" h="28"/>
+      <stroke/>
+      <path><move x="0" y="28"/><line x="40" y="0"/><move x="32" y="4"/><line x="40" y="0"/><move x="36" y="10"/><line x="40" y="0"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
 </shapes>

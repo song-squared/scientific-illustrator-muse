@@ -171,3 +171,72 @@ def ground_pe(ctx, x, y):
 def terminal_circle(ctx, x, y, r=8):
     """接线端子圆圈"""
     ctx.ellipse(x - r, y - r, 2 * r, 2 * r)
+
+def circuit_breaker(ctx, x, y_top):
+    """断路器 QF（垂直）"""
+    ctx.wire(x, y_top, x, y_top + 16)
+    ctx.wire(x - 9, y_top + 22, x + 9, y_top + 40)
+    ctx.wire(x - 9, y_top + 40, x + 9, y_top + 22)
+    ctx.wire(x, y_top + 46, x, y_top + 62)
+    return y_top + 62
+
+def disconnector(ctx, x, y_top):
+    """隔离开关 QS（垂直，带圆点铰链）"""
+    ctx.wire(x, y_top, x, y_top + 14)
+    ctx.dot(x, y_top + 18, 4, ctx.WHITE)
+    ctx.wire(x, y_top + 18, x + 16, y_top + 40)
+    ctx.wire(x, y_top + 44, x, y_top + 60)
+    return y_top + 60
+
+def emergency_stop(ctx, x, y):
+    """急停按钮（蘑菇头），y 为中心"""
+    ctx.wire(x, y - 30, x, y - 8)
+    ctx.ellipse(x - 15, y - 8, 30, 14)
+    ctx.wire(x, y + 6, x, y + 30)
+
+def limit_switch(ctx, x, y_top):
+    """限位开关 SQ（垂直，滚轮）"""
+    ctx.wire(x, y_top, x, y_top + 16)
+    ctx.wire(x, y_top + 16, x + 15, y_top + 36)
+    ctx.ellipse(x + 11, y_top + 30, 12, 12)
+    ctx.wire(x, y_top + 40, x, y_top + 56)
+    return y_top + 56
+
+def current_transformer(ctx, x, y):
+    """电流互感器 TA（两交叠圆），(x,y) 为中心"""
+    ctx.ellipse(x - 24, y - 16, 32, 32)
+    ctx.ellipse(x - 8, y - 16, 32, 32)
+
+def ammeter(ctx, x, y, r=28):
+    """电流表 A"""
+    ctx.ellipse(x - r, y - r, 2 * r, 2 * r)
+    ctx.text(x, y + 2, "A", 30, ctx.WHITE)
+
+def voltmeter(ctx, x, y, r=28):
+    """电压表 V"""
+    ctx.ellipse(x - r, y - r, 2 * r, 2 * r)
+    ctx.text(x, y + 2, "V", 30, ctx.WHITE)
+
+def surge_arrester(ctx, x, y_top):
+    """避雷器（垂直）"""
+    ctx.wire(x, y_top, x, y_top + 12)
+    ctx.rect(x - 10, y_top + 12, 20, 28)
+    ctx.wire(x - 10, y_top + 40, x + 10, y_top + 12)
+    ctx.wire(x + 6, y_top + 16, x + 10, y_top + 12)
+    ctx.wire(x + 2, y_top + 20, x + 10, y_top + 12)
+    ctx.wire(x, y_top + 40, x, y_top + 56)
+    return y_top + 56
+
+def time_delay_no(ctx, x, y_top):
+    """通电延时常开触点 KT（垂直）"""
+    no_contact(ctx, x, y_top)
+    ctx.wire(x - 12, y_top + 8, x - 12, y_top + 24)
+    ctx.wire(x - 12, y_top + 8, x + 12, y_top + 8)
+    return y_top + 52
+
+def solenoid(ctx, x, y):
+    """电磁铁/电磁阀线圈（方框+斜箭头），(x,y) 为中心"""
+    ctx.rect(x - 20, y - 14, 40, 28)
+    ctx.wire(x - 20, y + 14, x + 20, y - 14)
+    ctx.wire(x + 12, y - 10, x + 20, y - 14)
+    ctx.wire(x + 16, y - 4, x + 20, y - 14)
