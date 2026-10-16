@@ -10,9 +10,14 @@ from iec_symbols import (Ctx, no_contact, nc_contact, coil, thermal_relay,
                          disconnector, emergency_stop, limit_switch,
                          current_transformer, ammeter, voltmeter,
                          surge_arrester, time_delay_no, solenoid,
-                         contactor_main_contact, spdt_switch, time_relay_coil)
+                         contactor_main_contact, spdt_switch, time_relay_coil,
+                         dpdt_switch, load_break_switch, fuse_disconnector,
+                         earthing_switch, proximity_switch, pressure_switch,
+                         temperature_switch, foot_switch, rcd, motor_protector,
+                         ats, time_delay_nc, voltage_transformer, energy_meter,
+                         power_meter, frequency_meter, dc_motor, transformer_2w)
 
-W, H = 1400, 1900
+W, H = 1400, 2900
 OUT_DIR = os.path.expanduser("~/workspace/goals/muse-draw-io-scientific-illustrator-port/files/scientific-illustrator-muse")
 
 mxfile = ET.Element("mxfile", host="muse", type="device")
@@ -23,7 +28,7 @@ ET.SubElement(root, "mxCell", id="0")
 ET.SubElement(root, "mxCell", id="1", parent="0")
 ctx = Ctx(root)
 ctx.rect(0, 0, W, H, fill="#000000", stroke="#000000", sw=1)
-ctx.text(W // 2, 50, "IEC 60617 电气符号库（自建 27 符号）", 40)
+ctx.text(W // 2, 50, "IEC 60617 电气符号库（自建 45 符号）", 40)
 
 # (名称, 绘制函数)
 symbols = [
@@ -51,14 +56,32 @@ symbols = [
     ("避雷器 surge_arrester", lambda cx, cy: surge_arrester(ctx, cx, cy - 28)),
     ("延时常开 time_delay_no", lambda cx, cy: time_delay_no(ctx, cx, cy - 26)),
     ("电磁铁 solenoid", lambda cx, cy: solenoid(ctx, cx, cy)),
-    ("接触器主触点 contactor_main", lambda cx, cy: contactor_main_contact(ctx, cx - 51, cy - 26)),
+    ("接触器主触点 contactor_main", lambda cx, cy: contactor_main_contact(ctx, cx - 40, cy - 26)),
     ("单刀双掷 spdt_switch", lambda cx, cy: spdt_switch(ctx, cx, cy)),
     ("时间继电器线圈 time_relay_coil", lambda cx, cy: time_relay_coil(ctx, cx, cy)),
+    ("双刀双掷 dpdt_switch", lambda cx, cy: dpdt_switch(ctx, cx, cy)),
+    ("负荷开关 load_break_switch", lambda cx, cy: load_break_switch(ctx, cx, cy - 30)),
+    ("熔断器式隔离开关 fuse_disconnector", lambda cx, cy: fuse_disconnector(ctx, cx, cy - 27)),
+    ("接地开关 earthing_switch", lambda cx, cy: earthing_switch(ctx, cx - 4, cy - 26)),
+    ("接近开关 proximity_switch", lambda cx, cy: proximity_switch(ctx, cx, cy)),
+    ("压力开关 pressure_switch", lambda cx, cy: pressure_switch(ctx, cx, cy - 28)),
+    ("温度开关 temperature_switch", lambda cx, cy: temperature_switch(ctx, cx, cy - 26)),
+    ("脚踏开关 foot_switch", lambda cx, cy: foot_switch(ctx, cx, cy - 27)),
+    ("漏电保护器 rcd", lambda cx, cy: rcd(ctx, cx - 5, cy - 31)),
+    ("电动机保护器 motor_protector", lambda cx, cy: motor_protector(ctx, cx, cy)),
+    ("双电源切换 ats", lambda cx, cy: ats(ctx, cx, cy)),
+    ("断电延时常闭 time_delay_nc", lambda cx, cy: time_delay_nc(ctx, cx, cy - 26)),
+    ("电压互感器 voltage_transformer", lambda cx, cy: voltage_transformer(ctx, cx, cy)),
+    ("电能表 energy_meter", lambda cx, cy: energy_meter(ctx, cx, cy)),
+    ("功率表 power_meter", lambda cx, cy: power_meter(ctx, cx, cy)),
+    ("频率表 frequency_meter", lambda cx, cy: frequency_meter(ctx, cx, cy)),
+    ("直流电机 dc_motor", lambda cx, cy: dc_motor(ctx, cx, cy)),
+    ("双绕组变压器 transformer_2w", lambda cx, cy: transformer_2w(ctx, cx, cy)),
 ]
 
 COLS = 4
 CW, CH = W // COLS, 230
-assert len(symbols) == 27, len(symbols)
+assert len(symbols) == 45, len(symbols)
 
 COLS = 4
 CW, CH = W // COLS, 230
@@ -72,7 +95,7 @@ for i, (name, fn) in enumerate(symbols):
     fn(cx, cy)
     ctx.text(cx, cy + 95, name, 20)
 
-p = os.path.join(OUT_DIR, "iec60617-符号展示-v3.drawio")
+p = os.path.join(OUT_DIR, "iec60617-符号展示-v4.drawio")
 with open(p, "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
     f.write(ET.tostring(mxfile, encoding="unicode"))

@@ -316,8 +316,8 @@
       <stroke/>
     </foreground>
   </shape>
-  <!-- 接触器主触点 -->
-  <shape name="contactor_main_contact" aspect="variable" w="102" h="52" strokewidth="inherit">
+  <!-- contactor_main_contact（自动生成） -->
+  <shape name="contactor_main_contact" aspect="variable" w="81" h="52" strokewidth="inherit">
     <connections>
       <constraint x="0.17" y="0"/>
       <constraint x="0.5" y="0"/>
@@ -328,14 +328,33 @@
     </connections>
     <foreground>
       <strokewidth width="2"/>
-      <path><move x="17" y="0"/><line x="17" y="14"/><line x="30" y="32"/><move x="17" y="36"/><line x="17" y="52"/><move x="51" y="0"/><line x="51" y="14"/><line x="64" y="32"/><move x="51" y="36"/><line x="51" y="52"/><move x="85" y="0"/><line x="85" y="14"/><line x="98" y="32"/><move x="85" y="36"/><line x="85" y="52"/></path>
+      <path><move x="0" y="0"/><line x="0" y="14"/></path>
+      <stroke/>
+      <path><move x="0" y="14"/><line x="13" y="32"/></path>
+      <stroke/>
+      <path><move x="0" y="36"/><line x="0" y="52"/></path>
+      <stroke/>
+      <path><move x="34" y="0"/><line x="34" y="14"/></path>
+      <stroke/>
+      <path><move x="34" y="14"/><line x="47" y="32"/></path>
+      <stroke/>
+      <path><move x="34" y="36"/><line x="34" y="52"/></path>
+      <stroke/>
+      <path><move x="68" y="0"/><line x="68" y="14"/></path>
+      <stroke/>
+      <path><move x="68" y="14"/><line x="81" y="32"/></path>
+      <stroke/>
+      <path><move x="68" y="36"/><line x="68" y="52"/></path>
       <stroke/>
       <strokewidth width="1"/>
-      <path><move x="17" y="24"/><line x="85" y="24"/></path>
+      <dashed dashed="1" fixDash="1"/>
+      <dashpattern pattern="8 6"/>
+      <path><move x="0" y="24"/><line x="68" y="24"/></path>
       <stroke/>
+      <dashed dashed="0"/>
     </foreground>
   </shape>
-  <!-- 单刀双掷开关 -->
+  <!-- spdt_switch（自动生成） -->
   <shape name="spdt_switch" aspect="variable" w="44" h="60" strokewidth="inherit">
     <connections>
       <constraint x="0" y="0"/>
@@ -344,11 +363,17 @@
     </connections>
     <foreground>
       <strokewidth width="2"/>
-      <path><move x="0" y="0"/><line x="0" y="16"/><move x="44" y="0"/><line x="44" y="16"/><move x="22" y="34"/><line x="0" y="16"/><move x="22" y="34"/><line x="22" y="60"/></path>
+      <path><move x="0" y="0"/><line x="0" y="16"/></path>
+      <stroke/>
+      <path><move x="44" y="0"/><line x="44" y="16"/></path>
+      <stroke/>
+      <path><move x="22" y="34"/><line x="0" y="16"/></path>
+      <stroke/>
+      <path><move x="22" y="34"/><line x="22" y="60"/></path>
       <stroke/>
     </foreground>
   </shape>
-  <!-- 时间继电器线圈 -->
+  <!-- time_relay_coil（自动生成） -->
   <shape name="time_relay_coil" aspect="variable" w="64" h="36" strokewidth="inherit">
     <connections>
       <constraint x="0" y="0.5"/>
@@ -358,8 +383,361 @@
       <strokewidth width="2"/>
       <rect x="0" y="0" w="64" h="36"/>
       <stroke/>
-      <path><move x="8" y="28"/><line x="8" y="8"/><line x="56" y="8"/></path>
+      <path><move x="8" y="8"/><line x="8" y="28"/></path>
+      <stroke/>
+      <path><move x="8" y="8"/><line x="56" y="8"/></path>
       <stroke/>
     </foreground>
   </shape>
+  <!-- dpdt_switch（自动生成） -->
+  <shape name="dpdt_switch" aspect="variable" w="60" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0.03" y="0"/>
+      <constraint x="0.97" y="0"/>
+      <constraint x="0.23" y="1"/>
+      <constraint x="0.77" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="0" y="0"/><line x="0" y="16"/></path>
+      <stroke/>
+      <path><move x="28" y="0"/><line x="28" y="16"/></path>
+      <stroke/>
+      <path><move x="14" y="34"/><line x="0" y="16"/></path>
+      <stroke/>
+      <path><move x="14" y="34"/><line x="14" y="60"/></path>
+      <stroke/>
+      <path><move x="32" y="0"/><line x="32" y="16"/></path>
+      <stroke/>
+      <path><move x="60" y="0"/><line x="60" y="16"/></path>
+      <stroke/>
+      <path><move x="46" y="34"/><line x="32" y="16"/></path>
+      <stroke/>
+      <path><move x="46" y="34"/><line x="46" y="60"/></path>
+      <stroke/>
+      <strokewidth width="1"/>
+      <dashed dashed="1" fixDash="1"/>
+      <dashpattern pattern="8 6"/>
+      <path><move x="14" y="42"/><line x="46" y="42"/></path>
+      <stroke/>
+      <dashed dashed="0"/>
+    </foreground>
+  </shape>
+  <!-- load_break_switch（自动生成） -->
+  <shape name="load_break_switch" aspect="variable" w="27" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0.28" y="0"/>
+      <constraint x="0.28" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="4" y="0"/><line x="4" y="14"/></path>
+      <stroke/>
+      <ellipse x="0" y="14" w="8" h="8"/>
+      <fillstroke/>
+      <path><move x="4" y="18"/><line x="20" y="40"/></path>
+      <stroke/>
+      <path><move x="20" y="33"/><line x="27" y="40"/></path>
+      <stroke/>
+      <path><move x="4" y="44"/><line x="4" y="60"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- fuse_disconnector（自动生成） -->
+  <shape name="fuse_disconnector" aspect="variable" w="16" h="54" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="8" y="0"/><line x="8" y="12"/></path>
+      <stroke/>
+      <rect x="0" y="12" w="16" h="24"/>
+      <stroke/>
+      <path><move x="0" y="36"/><line x="16" y="12"/></path>
+      <stroke/>
+      <path><move x="8" y="36"/><line x="8" y="54"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- earthing_switch（自动生成） -->
+  <shape name="earthing_switch" aspect="variable" w="24" h="48" strokewidth="inherit">
+    <connections>
+      <constraint x="0.42" y="0"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="0" y="0"/><line x="0" y="16"/></path>
+      <stroke/>
+      <path><move x="0" y="16"/><line x="14" y="34"/></path>
+      <stroke/>
+      <path><move x="4" y="38"/><line x="24" y="38"/></path>
+      <stroke/>
+      <path><move x="8" y="43"/><line x="20" y="43"/></path>
+      <stroke/>
+      <path><move x="11" y="48"/><line x="17" y="48"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- proximity_switch（自动生成） -->
+  <shape name="proximity_switch" aspect="fixed" w="36" h="36" strokewidth="inherit">
+    <connections>
+      <constraint x="0" y="0.5"/>
+      <constraint x="1" y="0.5"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <rect x="0" y="0" w="36" h="36"/>
+      <stroke/>
+      <path><move x="0" y="36"/><line x="36" y="0"/></path>
+      <stroke/>
+      <ellipse x="20" y="6" w="10" h="10"/>
+      <fillstroke/>
+    </foreground>
+  </shape>
+  <!-- pressure_switch（自动生成） -->
+  <shape name="pressure_switch" aspect="variable" w="29" h="72" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="0" y="20"/><line x="0" y="12"/></path>
+      <stroke/>
+      <path><move x="28" y="20"/><line x="28" y="12"/></path>
+      <stroke/>
+      <path><move x="0" y="12"/><line x="14" y="0"/></path>
+      <stroke/>
+      <path><move x="14" y="0"/><line x="28" y="12"/></path>
+      <stroke/>
+      <path><move x="14" y="20"/><line x="14" y="36"/></path>
+      <stroke/>
+      <path><move x="14" y="36"/><line x="29" y="56"/></path>
+      <stroke/>
+      <path><move x="14" y="56"/><line x="14" y="72"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- temperature_switch（自动生成） -->
+  <shape name="temperature_switch" aspect="variable" w="25" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="0" y="0"/><line x="20" y="0"/></path>
+      <stroke/>
+      <path><move x="10" y="0"/><line x="10" y="8"/></path>
+      <stroke/>
+      <path><move x="10" y="8"/><line x="10" y="24"/></path>
+      <stroke/>
+      <path><move x="10" y="24"/><line x="25" y="44"/></path>
+      <stroke/>
+      <path><move x="10" y="44"/><line x="10" y="60"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- foot_switch（自动生成） -->
+  <shape name="foot_switch" aspect="variable" w="27" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="0" y="0"/><line x="24" y="0"/></path>
+      <stroke/>
+      <path><move x="12" y="0"/><line x="12" y="8"/></path>
+      <stroke/>
+      <path><move x="12" y="8"/><line x="12" y="24"/></path>
+      <stroke/>
+      <path><move x="12" y="24"/><line x="27" y="44"/></path>
+      <stroke/>
+      <path><move x="12" y="44"/><line x="12" y="60"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- rcd（自动生成） -->
+  <shape name="rcd" aspect="variable" w="31" h="62" strokewidth="inherit">
+    <connections>
+      <constraint x="0.32" y="0"/>
+      <constraint x="0.32" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="9" y="0"/><line x="9" y="16"/></path>
+      <stroke/>
+      <path><move x="0" y="22"/><line x="18" y="40"/></path>
+      <stroke/>
+      <path><move x="0" y="40"/><line x="18" y="22"/></path>
+      <stroke/>
+      <path><move x="9" y="46"/><line x="9" y="62"/></path>
+      <stroke/>
+      <path><move x="21" y="26"/><line x="31" y="26"/></path>
+      <stroke/>
+      <path><move x="26" y="26"/><line x="26" y="36"/></path>
+      <stroke/>
+      <path><move x="21" y="36"/><line x="31" y="36"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- motor_protector（自动生成） -->
+  <shape name="motor_protector" aspect="variable" w="72" h="40" strokewidth="inherit">
+    <connections>
+      <constraint x="0" y="0.5"/>
+      <constraint x="1" y="0.5"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <rect x="0" y="0" w="72" h="40"/>
+      <stroke/>
+      <text str="M" x="20" y="22" align="center" valign="middle" fontsize="24"/>
+      <stroke/>
+      <path><move x="38" y="30"/><line x="54" y="30"/></path>
+      <stroke/>
+      <path><move x="54" y="30"/><line x="64" y="10"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- ats（自动生成） -->
+  <shape name="ats" aspect="variable" w="72" h="79.2" strokewidth="inherit">
+    <connections>
+      <constraint x="0.17" y="0"/>
+      <constraint x="0.83" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <rect x="0" y="1.1" w="72" h="18"/>
+      <stroke/>
+      <text str="ATS" x="36" y="10.1" align="center" valign="middle" fontsize="14"/>
+      <stroke/>
+      <path><move x="12" y="19.1"/><line x="12" y="37.1"/></path>
+      <stroke/>
+      <path><move x="60" y="19.1"/><line x="60" y="37.1"/></path>
+      <stroke/>
+      <path><move x="36" y="55.1"/><line x="12" y="37.1"/></path>
+      <stroke/>
+      <path><move x="36" y="55.1"/><line x="36" y="79.2"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- time_delay_nc（自动生成） -->
+  <shape name="time_delay_nc" aspect="variable" w="27" h="52" strokewidth="inherit">
+    <connections>
+      <constraint x="0.64" y="0"/>
+      <constraint x="0.64" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="12" y="0"/><line x="12" y="16"/></path>
+      <stroke/>
+      <path><move x="12" y="16"/><line x="27" y="36"/></path>
+      <stroke/>
+      <path><move x="12" y="36"/><line x="12" y="52"/></path>
+      <stroke/>
+      <path><move x="5" y="32"/><line x="23" y="20"/></path>
+      <stroke/>
+      <path><move x="0" y="8"/><line x="0" y="24"/></path>
+      <stroke/>
+      <path><move x="0" y="8"/><line x="24" y="8"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- voltage_transformer（自动生成） -->
+  <shape name="voltage_transformer" aspect="fixed" w="32" h="56" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="32" h="32"/>
+      <stroke/>
+      <ellipse x="0" y="24" w="32" h="32"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- energy_meter（自动生成） -->
+  <shape name="energy_meter" aspect="fixed" w="60" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="60" h="60"/>
+      <stroke/>
+      <text str="kWh" x="30" y="32" align="center" valign="middle" fontsize="20"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- power_meter（自动生成） -->
+  <shape name="power_meter" aspect="fixed" w="56" h="56" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="56" h="56"/>
+      <stroke/>
+      <text str="W" x="28" y="30" align="center" valign="middle" fontsize="24"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- frequency_meter（自动生成） -->
+  <shape name="frequency_meter" aspect="fixed" w="56" h="56" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="56" h="56"/>
+      <stroke/>
+      <text str="Hz" x="28" y="30" align="center" valign="middle" fontsize="22"/>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- dc_motor（自动生成） -->
+  <shape name="dc_motor" aspect="fixed" w="64" h="64" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="0" y="0" w="64" h="64"/>
+      <stroke/>
+      <text str="M" x="32" y="26" align="center" valign="middle" fontsize="28"/>
+      <stroke/>
+      <path><move x="18" y="44"/><line x="46" y="44"/></path>
+      <stroke/>
+      <path><move x="18" y="50"/><line x="46" y="50"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- transformer_2w（自动生成） -->
+  <shape name="transformer_2w" aspect="fixed" w="36" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <ellipse x="4" y="4" w="32" h="32"/>
+      <stroke/>
+      <ellipse x="4" y="28" w="32" h="32"/>
+      <stroke/>
+      <ellipse x="0" y="0" w="8" h="8"/>
+      <fillstroke/>
+      <ellipse x="0" y="24" w="8" h="8"/>
+      <fillstroke/>
+    </foreground>
+  </shape>
+
 </shapes>

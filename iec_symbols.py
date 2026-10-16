@@ -248,7 +248,7 @@ def contactor_main_contact(ctx, x, y_top):
         ctx.wire(x + dx, y_top + 14, x + dx + 13, y_top + 32)
         ctx.wire(x + dx, y_top + 36, x + dx, y_top + 52)
     # 联动虚线
-    ctx.wire(x - 34, y_top + 24, x + 34, y_top + 24, color=ctx.WHITE, w=1)
+    ctx.wire(x - 34, y_top + 24, x + 34, y_top + 24, color=ctx.WHITE, w=1, dashed=True)
     return y_top + 52
 
 def spdt_switch(ctx, x, y):
@@ -263,3 +263,134 @@ def time_relay_coil(ctx, x, y, w=64, h=36):
     ctx.rect(x - w / 2, y - h / 2, w, h)
     ctx.wire(x - w / 2 + 8, y - h / 2 + 8, x - w / 2 + 8, y + h / 2 - 8)
     ctx.wire(x - w / 2 + 8, y - h / 2 + 8, x + w / 2 - 8, y - h / 2 + 8)
+
+def dpdt_switch(ctx, x, y):
+    """双刀双掷开关，(x,y) 为中心"""
+    for dx in (-16, 16):
+        ctx.wire(x + dx - 14, y - 34, x + dx - 14, y - 18)
+        ctx.wire(x + dx + 14, y - 34, x + dx + 14, y - 18)
+        ctx.wire(x + dx, y, x + dx - 14, y - 18)
+        ctx.wire(x + dx, y, x + dx, y + 26)
+    ctx.wire(x - 16, y + 8, x + 16, y + 8, w=1, dashed=True)
+
+def load_break_switch(ctx, x, y_top):
+    """负荷开关（垂直，带灭弧标记）"""
+    ctx.wire(x, y_top, x, y_top + 14)
+    ctx.dot(x, y_top + 18, 4, ctx.WHITE)
+    ctx.wire(x, y_top + 18, x + 16, y_top + 40)
+    ctx.wire(x + 16, y_top + 33, x + 23, y_top + 40)
+    ctx.wire(x, y_top + 44, x, y_top + 60)
+    return y_top + 60
+
+def fuse_disconnector(ctx, x, y_top):
+    """熔断器式隔离开关（垂直）"""
+    ctx.wire(x, y_top, x, y_top + 12)
+    ctx.rect(x - 8, y_top + 12, 16, 24)
+    ctx.wire(x - 8, y_top + 36, x + 8, y_top + 12)
+    ctx.wire(x, y_top + 36, x, y_top + 54)
+    return y_top + 54
+
+def earthing_switch(ctx, x, y_top):
+    """接地开关（垂直）"""
+    ctx.wire(x, y_top, x, y_top + 16)
+    ctx.wire(x, y_top + 16, x + 14, y_top + 34)
+    ctx.wire(x + 4, y_top + 38, x + 24, y_top + 38)
+    ctx.wire(x + 8, y_top + 43, x + 20, y_top + 43)
+    ctx.wire(x + 11, y_top + 48, x + 17, y_top + 48)
+    return y_top + 52
+
+def proximity_switch(ctx, x, y):
+    """接近开关（方框+靶标），(x,y) 为中心"""
+    ctx.rect(x - 18, y - 18, 36, 36)
+    ctx.wire(x - 18, y + 18, x + 18, y - 18)
+    ctx.dot(x + 7, y - 7, 5, ctx.WHITE)
+
+def pressure_switch(ctx, x, y_top):
+    """压力开关（垂直，压力弓）"""
+    ctx.wire(x - 14, y_top + 12, x - 14, y_top + 4)
+    ctx.wire(x + 14, y_top + 12, x + 14, y_top + 4)
+    ctx.wire(x - 14, y_top + 4, x, y_top - 8)
+    ctx.wire(x, y_top - 8, x + 14, y_top + 4)
+    no_contact(ctx, x, y_top + 12)
+    return y_top + 64
+
+def temperature_switch(ctx, x, y_top):
+    """温度开关（垂直）"""
+    ctx.wire(x - 10, y_top + 8, x + 10, y_top + 8)
+    ctx.wire(x, y_top + 8, x, y_top + 16)
+    no_contact(ctx, x, y_top + 16)
+    return y_top + 68
+
+def foot_switch(ctx, x, y_top):
+    """脚踏开关（垂直）"""
+    ctx.wire(x - 12, y_top + 6, x + 12, y_top + 6)
+    ctx.wire(x, y_top + 6, x, y_top + 14)
+    no_contact(ctx, x, y_top + 14)
+    return y_top + 66
+
+def rcd(ctx, x, y_top):
+    """漏电保护器 RCD（垂直）"""
+    circuit_breaker(ctx, x, y_top)
+    ctx.wire(x + 12, y_top + 26, x + 22, y_top + 26)
+    ctx.wire(x + 17, y_top + 26, x + 17, y_top + 36)
+    ctx.wire(x + 12, y_top + 36, x + 22, y_top + 36)
+    return y_top + 62
+
+def motor_protector(ctx, x, y, w=72, h=40):
+    """电动机保护器（矩形+M+过载曲线），(x,y) 为中心"""
+    ctx.rect(x - w / 2, y - h / 2, w, h)
+    ctx.text(x - 16, y + 2, "M", 24, ctx.WHITE)
+    ctx.wire(x + 2, y + 10, x + 18, y + 10)
+    ctx.wire(x + 18, y + 10, x + 28, y - 10)
+
+def ats(ctx, x, y):
+    """双电源自动切换 ATS（简化），(x,y) 为中心"""
+    ctx.rect(x - 36, y - 46, 72, 18)
+    ctx.text(x, y - 37, "ATS", 14, ctx.WHITE)
+    ctx.wire(x - 24, y - 28, x - 24, y - 10)
+    ctx.wire(x + 24, y - 28, x + 24, y - 10)
+    ctx.wire(x, y + 8, x - 24, y - 10)
+    ctx.wire(x, y + 8, x, y + 32)
+
+def time_delay_nc(ctx, x, y_top):
+    """断电延时常闭触点（垂直）"""
+    nc_contact(ctx, x, y_top)
+    ctx.wire(x - 12, y_top + 8, x - 12, y_top + 24)
+    ctx.wire(x - 12, y_top + 8, x + 12, y_top + 8)
+    return y_top + 52
+
+def voltage_transformer(ctx, x, y):
+    """电压互感器 TV（两交叠圆垂直），(x,y) 为中心"""
+    ctx.ellipse(x - 16, y - 28, 32, 32)
+    ctx.ellipse(x - 16, y - 4, 32, 32)
+
+def meter(ctx, x, y, label, r=28, size=24):
+    """通用仪表：圆圈+字母"""
+    ctx.ellipse(x - r, y - r, 2 * r, 2 * r)
+    ctx.text(x, y + 2, label, size, ctx.WHITE)
+
+def energy_meter(ctx, x, y):
+    """电能表 kWh"""
+    meter(ctx, x, y, "kWh", r=30, size=20)
+
+def power_meter(ctx, x, y):
+    """功率表 W"""
+    meter(ctx, x, y, "W")
+
+def frequency_meter(ctx, x, y):
+    """频率表 Hz"""
+    meter(ctx, x, y, "Hz", size=22)
+
+def dc_motor(ctx, x, y, r=32):
+    """直流电机（圆圈+M+直流符号），(x,y) 为中心"""
+    ctx.ellipse(x - r, y - r, 2 * r, 2 * r)
+    ctx.text(x, y - 6, "M", 28, ctx.WHITE)
+    ctx.wire(x - 14, y + 12, x + 14, y + 12)
+    ctx.wire(x - 14, y + 18, x + 14, y + 18)
+
+def transformer_2w(ctx, x, y):
+    """双绕组变压器（两交叠圆+极性点），(x,y) 为中心"""
+    ctx.ellipse(x - 16, y - 28, 32, 32)
+    ctx.ellipse(x - 16, y - 4, 32, 32)
+    ctx.dot(x - 16, y - 28, 4, ctx.WHITE)
+    ctx.dot(x - 16, y - 4, 4, ctx.WHITE)
