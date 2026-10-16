@@ -240,3 +240,26 @@ def solenoid(ctx, x, y):
     ctx.wire(x - 20, y + 14, x + 20, y - 14)
     ctx.wire(x + 12, y - 10, x + 20, y - 14)
     ctx.wire(x + 16, y - 4, x + 20, y - 14)
+
+def contactor_main_contact(ctx, x, y_top):
+    """接触器主触点 KM（三极联动常开）"""
+    for dx in (-34, 0, 34):
+        ctx.wire(x + dx, y_top, x + dx, y_top + 14)
+        ctx.wire(x + dx, y_top + 14, x + dx + 13, y_top + 32)
+        ctx.wire(x + dx, y_top + 36, x + dx, y_top + 52)
+    # 联动虚线
+    ctx.wire(x - 34, y_top + 24, x + 34, y_top + 24, color=ctx.WHITE, w=1)
+    return y_top + 52
+
+def spdt_switch(ctx, x, y):
+    """单刀双掷开关，(x,y) 为公共端铰链"""
+    ctx.wire(x - 22, y - 34, x - 22, y - 18)   # 左掷引线
+    ctx.wire(x + 22, y - 34, x + 22, y - 18)   # 右掷引线
+    ctx.wire(x, y, x - 22, y - 18)             # 刀片打向左掷
+    ctx.wire(x, y, x, y + 26)                  # 公共端引线
+
+def time_relay_coil(ctx, x, y, w=64, h=36):
+    """时间继电器线圈 KT（矩形+延时弧）"""
+    ctx.rect(x - w / 2, y - h / 2, w, h)
+    ctx.wire(x - w / 2 + 8, y - h / 2 + 8, x - w / 2 + 8, y + h / 2 - 8)
+    ctx.wire(x - w / 2 + 8, y - h / 2 + 8, x + w / 2 - 8, y - h / 2 + 8)

@@ -316,4 +316,50 @@
       <stroke/>
     </foreground>
   </shape>
+  <!-- 接触器主触点 -->
+  <shape name="contactor_main_contact" aspect="variable" w="102" h="52" strokewidth="inherit">
+    <connections>
+      <constraint x="0.17" y="0"/>
+      <constraint x="0.5" y="0"/>
+      <constraint x="0.83" y="0"/>
+      <constraint x="0.17" y="1"/>
+      <constraint x="0.5" y="1"/>
+      <constraint x="0.83" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="17" y="0"/><line x="17" y="14"/><line x="30" y="32"/><move x="17" y="36"/><line x="17" y="52"/><move x="51" y="0"/><line x="51" y="14"/><line x="64" y="32"/><move x="51" y="36"/><line x="51" y="52"/><move x="85" y="0"/><line x="85" y="14"/><line x="98" y="32"/><move x="85" y="36"/><line x="85" y="52"/></path>
+      <stroke/>
+      <strokewidth width="1"/>
+      <path><move x="17" y="24"/><line x="85" y="24"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 单刀双掷开关 -->
+  <shape name="spdt_switch" aspect="variable" w="44" h="60" strokewidth="inherit">
+    <connections>
+      <constraint x="0" y="0"/>
+      <constraint x="1" y="0"/>
+      <constraint x="0.5" y="1"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <path><move x="0" y="0"/><line x="0" y="16"/><move x="44" y="0"/><line x="44" y="16"/><move x="22" y="34"/><line x="0" y="16"/><move x="22" y="34"/><line x="22" y="60"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
+  <!-- 时间继电器线圈 -->
+  <shape name="time_relay_coil" aspect="variable" w="64" h="36" strokewidth="inherit">
+    <connections>
+      <constraint x="0" y="0.5"/>
+      <constraint x="1" y="0.5"/>
+    </connections>
+    <foreground>
+      <strokewidth width="2"/>
+      <rect x="0" y="0" w="64" h="36"/>
+      <stroke/>
+      <path><move x="8" y="28"/><line x="8" y="8"/><line x="56" y="8"/></path>
+      <stroke/>
+    </foreground>
+  </shape>
 </shapes>

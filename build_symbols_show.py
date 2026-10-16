@@ -9,9 +9,10 @@ from iec_symbols import (Ctx, no_contact, nc_contact, coil, thermal_relay,
                          ground_pe, terminal_circle, circuit_breaker,
                          disconnector, emergency_stop, limit_switch,
                          current_transformer, ammeter, voltmeter,
-                         surge_arrester, time_delay_no, solenoid)
+                         surge_arrester, time_delay_no, solenoid,
+                         contactor_main_contact, spdt_switch, time_relay_coil)
 
-W, H = 1400, 1650
+W, H = 1400, 1900
 OUT_DIR = os.path.expanduser("~/workspace/goals/muse-draw-io-scientific-illustrator-port/files/scientific-illustrator-muse")
 
 mxfile = ET.Element("mxfile", host="muse", type="device")
@@ -22,7 +23,7 @@ ET.SubElement(root, "mxCell", id="0")
 ET.SubElement(root, "mxCell", id="1", parent="0")
 ctx = Ctx(root)
 ctx.rect(0, 0, W, H, fill="#000000", stroke="#000000", sw=1)
-ctx.text(W // 2, 50, "IEC 60617 电气符号库（自建 24 符号）", 40)
+ctx.text(W // 2, 50, "IEC 60617 电气符号库（自建 27 符号）", 40)
 
 # (名称, 绘制函数)
 symbols = [
@@ -50,11 +51,14 @@ symbols = [
     ("避雷器 surge_arrester", lambda cx, cy: surge_arrester(ctx, cx, cy - 28)),
     ("延时常开 time_delay_no", lambda cx, cy: time_delay_no(ctx, cx, cy - 26)),
     ("电磁铁 solenoid", lambda cx, cy: solenoid(ctx, cx, cy)),
+    ("接触器主触点 contactor_main", lambda cx, cy: contactor_main_contact(ctx, cx - 51, cy - 26)),
+    ("单刀双掷 spdt_switch", lambda cx, cy: spdt_switch(ctx, cx, cy)),
+    ("时间继电器线圈 time_relay_coil", lambda cx, cy: time_relay_coil(ctx, cx, cy)),
 ]
 
 COLS = 4
 CW, CH = W // COLS, 230
-assert len(symbols) == 24, len(symbols)
+assert len(symbols) == 27, len(symbols)
 
 COLS = 4
 CW, CH = W // COLS, 230
@@ -68,7 +72,7 @@ for i, (name, fn) in enumerate(symbols):
     fn(cx, cy)
     ctx.text(cx, cy + 95, name, 20)
 
-p = os.path.join(OUT_DIR, "iec60617-符号展示-v1.drawio")
+p = os.path.join(OUT_DIR, "iec60617-符号展示-v3.drawio")
 with open(p, "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
     f.write(ET.tostring(mxfile, encoding="unicode"))
